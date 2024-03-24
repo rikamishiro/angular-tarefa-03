@@ -4,40 +4,25 @@ import {
 import {
   CommonModule,
 } from '@angular/common';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
-import { map } from 'rxjs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FavoritoService } from '../../services/favorito.service';
-
-interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
-  private breakpointObserver = inject(BreakpointObserver);
-  public umaColuna$ = this.breakpointObserver.observe([
-    Breakpoints.XSmall,
-    Breakpoints.Small,
-  ]).pipe(map(breakpointState => breakpointState.matches));
-  public duasColunas$ = this.breakpointObserver.observe([
-    Breakpoints.Medium,
-  ]).pipe(map(breakpointState => breakpointState.matches));
 
   private favoritoService = inject(FavoritoService);
   public favoritos$ = this.favoritoService.getAll();
