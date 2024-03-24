@@ -8,6 +8,8 @@ import * as path from 'path';
 
 import { MongoClient } from 'mongodb';
 
+import cors from 'cors';
+
 MongoClient.connect(
   'mongodb://angular-aula03-2022-1_devcontainer-db-1/',
 ).then(client => {
@@ -18,6 +20,8 @@ MongoClient.connect(
 });
 
 const app = express();
+
+app.use(cors());  // Middleware de CORS.
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
