@@ -21,6 +21,18 @@
         </button>
       }
       <span>Meus favoritos</span>
+      <span class="spacer"></span>
+      <button
+        mat-fab
+        extended
+        class="example-icon favorite-icon"
+        aria-label="Botão de incluir novo favorito na coleção"
+        routerLink="/favorito-edicao"
+        routerLinkActive="oculto"
+      >
+        <mat-icon>bookmark_add</mat-icon>
+        Novo
+      </button>
     </mat-toolbar>
     <div style="padding: 1em;">
       <router-outlet></router-outlet>
