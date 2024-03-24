@@ -6,7 +6,10 @@ import {
 } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import { map } from 'rxjs';
+
+import { FavoritoService } from '../../services/favorito.service';
 
 interface Tile {
   color: string;
@@ -27,13 +30,6 @@ interface Tile {
 })
 export class HomeComponent {
 
-  public tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
-  ];
-
   private breakpointObserver = inject(BreakpointObserver);
   public umaColuna$ = this.breakpointObserver.observe([
     Breakpoints.XSmall,
@@ -42,5 +38,8 @@ export class HomeComponent {
   public duasColunas$ = this.breakpointObserver.observe([
     Breakpoints.Medium,
   ]).pipe(map(breakpointState => breakpointState.matches));
+
+  private favoritoService = inject(FavoritoService);
+  public favoritos$ = this.favoritoService.getAll();
 
 }
