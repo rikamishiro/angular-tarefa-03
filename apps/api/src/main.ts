@@ -13,6 +13,7 @@ import cors from 'cors';
 import { json } from 'body-parser';
 
 import { favoritoRouter } from './routes/favorito.router';
+import { authRouter } from './routes/auth.router';
 
 MongoClient.connect(
   'mongodb://angular-aula03-2022-1_devcontainer-db-1/',
@@ -36,6 +37,7 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/api/favorito', favoritoRouter);
+app.use('/api/auth', authRouter);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
