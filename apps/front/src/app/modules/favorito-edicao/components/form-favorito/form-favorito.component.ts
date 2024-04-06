@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 
 import { FavoritoEdicaoService } from '../../services/favorito-edicao.service';
+import { IFavorito } from '@nx-monorepo/comum';
 
 @Component({
   selector: 'app-form-favorito',
@@ -47,7 +48,17 @@ export class FormFavoritoComponent implements OnInit {
   public favoritoEdicaoService = inject(FavoritoEdicaoService);
 
   public enviar(): void {
-    alert('Thanks!');
+    const favorito = this.formGroup.value as IFavorito; // Casting.
+    if (favorito._id) {
+      // Editar favorito:
+      this.favoritoEdicaoService.put(favorito).subscribe(
+        favoritoGravado => {
+          console.log('Banco gravou', favoritoGravado);
+        },
+      );
+    } else {
+      // Novo favorito:
+    }
   }
 
   public ngOnInit(): void {
