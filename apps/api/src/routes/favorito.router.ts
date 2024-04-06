@@ -53,3 +53,30 @@ favoritoRouter.put('/:_id', async (req: Request, res: Response, next: NextFuncti
   }
 
 });
+
+favoritoRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+
+  const favorito: IFavorito = req.body;
+
+  // TO BE DONE: validar entradas!!!!!
+
+  const maxId = await getCollection<IFavorito>(
+    req.app,
+    'favoritos',
+  ).find().sort({ _id: -1 }).limit(1).toArray();
+  const newId: number = (!maxId || maxId.length < 1) ? 1 : maxId[0]._id + 1;
+
+  favorito._id = newId;
+
+  const resultado = await getCollection<IFavorito>(
+    req.app,
+    'favoritos',
+  ).insertOne(favorito);
+
+  if (resultado.acknowledged) {
+    res.json(favorito);
+  } else {
+    return next(new Error(`Não foi possível criar o favorito!`));
+  }
+
+});

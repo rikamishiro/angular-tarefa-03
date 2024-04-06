@@ -58,6 +58,11 @@ export class FormFavoritoComponent implements OnInit {
       );
     } else {
       // Novo favorito:
+      this.favoritoEdicaoService.post(favorito).subscribe(
+        favoritoGravado => {
+          console.log('Inserido no banco', favoritoGravado);
+        }
+      )
     }
   }
 

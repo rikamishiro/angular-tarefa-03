@@ -38,4 +38,18 @@ export class FavoritoEdicaoService {
     return req$;
   }
 
+  public post(favorito: IFavorito): Observable<IFavorito> {
+    const req$ = this.httpClient.post<IFavorito>(
+      `${this.apiBase}/favorito/`,
+      favorito,
+    ).pipe(
+      share(),  // Compartilha o mesmo stream com todos os inscritos.
+    );
+
+    // Dispara a requisição:
+    req$.subscribe();
+
+    return req$;
+  }
+
 }
