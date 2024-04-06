@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -46,6 +47,7 @@ export class FormFavoritoComponent implements OnInit {
   });
 
   public favoritoEdicaoService = inject(FavoritoEdicaoService);
+  private router = inject(Router);
 
   public enviar(): void {
     const favorito = this.formGroup.value as IFavorito; // Casting.
@@ -53,14 +55,14 @@ export class FormFavoritoComponent implements OnInit {
       // Editar favorito:
       this.favoritoEdicaoService.put(favorito).subscribe(
         favoritoGravado => {
-          console.log('Banco gravou', favoritoGravado);
+          this.router.navigate(['/']);
         },
       );
     } else {
       // Novo favorito:
       this.favoritoEdicaoService.post(favorito).subscribe(
         favoritoGravado => {
-          console.log('Inserido no banco', favoritoGravado);
+          this.router.navigate(['/']);
         }
       )
     }
