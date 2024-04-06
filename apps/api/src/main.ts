@@ -10,6 +10,8 @@ import { MongoClient } from 'mongodb';
 
 import cors from 'cors';
 
+import { json } from 'body-parser';
+
 import { favoritoRouter } from './routes/favorito.router';
 
 MongoClient.connect(
@@ -24,6 +26,8 @@ MongoClient.connect(
 const app = express();
 
 app.use(cors());  // Middleware de CORS.
+
+app.use(json());
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
