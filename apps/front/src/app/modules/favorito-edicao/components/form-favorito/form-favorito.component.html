@@ -19,8 +19,8 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Descrição" formControlName="descricao">
-            @if (formGroup.controls['descricao'].hasError('required')) {
+            <input matInput placeholder="URL da página" formControlName="url">
+            @if (formGroup.controls['url'].hasError('required')) {
               <mat-error>Campo <strong>obrigatório</strong></mat-error>
             }
           </mat-form-field>
@@ -37,8 +37,8 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="URL da página" formControlName="url"></textarea>
-            @if (formGroup.controls['url'].hasError('required')) {
+            <textarea matInput placeholder="Descrição" formControlName="descricao"></textarea>
+            @if (formGroup.controls['descricao'].hasError('required')) {
               <mat-error>Campo <strong>obrigatório</strong></mat-error>
             }
           </mat-form-field>
