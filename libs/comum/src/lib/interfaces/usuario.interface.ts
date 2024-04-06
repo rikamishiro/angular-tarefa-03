@@ -11,3 +11,10 @@ export interface IUsuario {
   administrador: boolean;
 
 }
+
+export type IUsuarioESenha = Pick<IUsuario, 'login' | 'senha'>;
+export interface IUsuarioLogado {
+
+  usuario: IUsuario
+
+}
