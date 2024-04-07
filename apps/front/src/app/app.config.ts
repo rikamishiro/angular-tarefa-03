@@ -10,11 +10,12 @@ import {
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AuthModule } from '@nx-monorepo/auth';
+import {
+  API_BASE,
+  AuthModule,
+} from '@nx-monorepo/auth';
 
 import { appRoutes } from './app.routes';
-
-export const API_BASE = new InjectionToken<string>('URL base da API');
 
 export const appConfig: ApplicationConfig = {
   providers: [
