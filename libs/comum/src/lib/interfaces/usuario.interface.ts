@@ -12,9 +12,12 @@ export interface IUsuario {
 
 }
 
+export type IUsuarioSemSenha = Omit<IUsuario, 'senha'>;
 export type IUsuarioESenha = Pick<IUsuario, 'login' | 'senha'>;
 export interface IUsuarioLogado {
 
-  usuario: IUsuario
+  jwt: string;
+
+  usuario: IUsuarioSemSenha;
 
 }
