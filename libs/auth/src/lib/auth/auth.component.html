@@ -4,13 +4,18 @@
     Fazer login
   </h1>
 
-  <form style="display: flex; flex-direction: column; max-width: 20em;">
+  <form
+    (submit)="envia()"
+    [formGroup]="formGroup"
+    style="display: flex; flex-direction: column; max-width: 20em;"
+  >
 
     <mat-form-field>
       <mat-label>Usuário</mat-label>
       <input
         matInput
         type="text"
+        formControlName="login"
       />
     </mat-form-field>
 
@@ -19,6 +24,7 @@
       <input
         matInput
         type="password"
+        formControlName="senha"
       />
     </mat-form-field>
 
@@ -26,6 +32,7 @@
       mat-fab
       extended
       type="submit"
+      [disabled]="formGroup.invalid"
     >
       <mat-icon>login</mat-icon>
       Login
