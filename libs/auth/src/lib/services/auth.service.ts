@@ -8,7 +8,7 @@ import {
 
 import { API_BASE } from '../auth/auth.module';
 import { IUsuarioESenha, IUsuarioLogado } from '@nx-monorepo/comum';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +22,10 @@ export class AuthService {
     return this.httpClient.post<IUsuarioLogado>(
       `${this.apiBase}/auth/login`,
       usuario,
+    ).pipe(
+      tap(usuarioLogado => {
+        localStorage.setItem('jwt', usuarioLogado.jwt);
+      }),
     );
   }
 

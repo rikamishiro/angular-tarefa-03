@@ -14,6 +14,7 @@ import { json } from 'body-parser';
 
 import { favoritoRouter } from './routes/favorito.router';
 import { authRouter } from './routes/auth.router';
+import { verificarTokenJwt } from './util/jwt';
 
 MongoClient.connect(
   'mongodb://angular-aula03-2022-1_devcontainer-db-1/',

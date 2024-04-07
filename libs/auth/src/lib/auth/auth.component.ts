@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { IUsuarioESenha } from '@nx-monorepo/comum';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-auth',
@@ -32,6 +33,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthComponent {
 
+  private router = inject(Router);
   private authService = inject(AuthService);
   private fb = inject(FormBuilder);
   public formGroup = this.fb.group({
@@ -41,11 +43,15 @@ export class AuthComponent {
 
   public envia(): void {
     const iUsuarioESenha = this.formGroup.value as IUsuarioESenha;
-    this.authService.login(iUsuarioESenha).subscribe(
-      usuarioLogado => {
+    this.authService.login(iUsuarioESenha).subscribe({
+      next: usuarioLogado => {
         console.log('Logou com sucesso', usuarioLogado);
+        this.router.navigate(['/']);
       },
-    );
+      error: error => {
+        console.error('Ocorreu um erro no login', error);
+      },
+    });
   }
 
 }
