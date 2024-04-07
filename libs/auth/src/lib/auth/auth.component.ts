@@ -13,6 +13,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { IUsuarioESenha } from '@nx-monorepo/comum';
+import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'lib-auth',
   standalone: true,
@@ -29,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AuthComponent {
 
+  private authService = inject(AuthService);
   private fb = inject(FormBuilder);
   public formGroup = this.fb.group({
     login: ['', Validators.required],
@@ -36,7 +40,12 @@ export class AuthComponent {
   });
 
   public envia(): void {
-    console.log('Enviar!', this.formGroup.value);
+    const iUsuarioESenha = this.formGroup.value as IUsuarioESenha;
+    this.authService.login(iUsuarioESenha).subscribe(
+      usuarioLogado => {
+        console.log('Logou com sucesso', usuarioLogado);
+      },
+    );
   }
 
 }
