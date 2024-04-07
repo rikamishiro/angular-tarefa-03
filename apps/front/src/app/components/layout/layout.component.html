@@ -33,15 +33,27 @@
         <mat-icon>bookmark_add</mat-icon>
         Novo
       </button>
-      <button
-        mat-button
-        aria-label="Botão de fazer login na aplicação"
-        routerLink="/auth"
-        routerLinkActive="oculto"
-      >
-        <mat-icon>login</mat-icon>
-        Fazer login
-      </button>
+      @if (authService.logado$ | async) {
+        <button
+          mat-flat-button
+          color="warn"
+          aria-label="Botão de fazer logout da aplicação"
+          (click)="logout()"
+        >
+          <mat-icon>logout</mat-icon>
+          Fazer logout
+        </button>
+      } @else {
+        <button
+          mat-button
+          aria-label="Botão de fazer login na aplicação"
+          routerLink="/auth"
+          routerLinkActive="oculto"
+        >
+          <mat-icon>login</mat-icon>
+          Fazer login
+        </button>
+      }
     </mat-toolbar>
     <div style="padding: 1em;">
       <router-outlet></router-outlet>
