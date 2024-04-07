@@ -8,6 +8,7 @@ import {
 import { IFavorito } from "@nx-monorepo/comum";
 
 import { getCollection } from "../util/get-collection";
+import { AuthorizedRequest, verificarTokenJwt } from "../util/jwt";
 
 export const favoritoRouter = Router();
 
@@ -19,7 +20,9 @@ favoritoRouter.get('/', async (req: Request, res: Response, next: NextFunction) 
   res.json(favoritos);
 });
 
-favoritoRouter.get('/:_id', async (req: Request, res: Response, next: NextFunction) => {
+favoritoRouter.use(verificarTokenJwt);
+
+favoritoRouter.get('/:_id', async (req: AuthorizedRequest, res: Response, next: NextFunction) => {
   const _id: number = +req.params._id;
 
   // TO BE DONE: validar entradas!!!!!
@@ -33,7 +36,7 @@ favoritoRouter.get('/:_id', async (req: Request, res: Response, next: NextFuncti
   res.json(favorito);
 });
 
-favoritoRouter.put('/:_id', async (req: Request, res: Response, next: NextFunction) => {
+favoritoRouter.put('/:_id', async (req: AuthorizedRequest, res: Response, next: NextFunction) => {
   const _id: number = +req.params._id;
   const favorito: IFavorito = req.body;
 
@@ -54,7 +57,7 @@ favoritoRouter.put('/:_id', async (req: Request, res: Response, next: NextFuncti
 
 });
 
-favoritoRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+favoritoRouter.post('/', async (req: AuthorizedRequest, res: Response, next: NextFunction) => {
 
   const favorito: IFavorito = req.body;
 

@@ -1,6 +1,11 @@
 import * as jsonWebToken from 'jsonwebtoken';
 
-import { IUsuario } from '@nx-monorepo/comum';
+import { Request, expressjwt } from 'express-jwt';
+
+import {
+  IUsuario,
+  IUsuarioJwt,
+} from '@nx-monorepo/comum';
 
 import { sanitizarUsuario } from './sanitization';
 
@@ -15,3 +20,10 @@ export function criarToken(usuario: IUsuario): string {
     },
   );
 }
+
+export const verificarTokenJwt = expressjwt({
+  secret: JWT_SECRET_KEY,
+  algorithms: ['HS256'],
+});
+
+export type AuthorizedRequest = Request<IUsuarioJwt>;
