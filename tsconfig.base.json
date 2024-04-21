@@ -16,7 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@nx-monorepo/auth": ["libs/auth/src/index.ts"],
-      "@nx-monorepo/comum": ["libs/comum/src/index.ts"]
+      "@nx-monorepo/comum": ["libs/comum/src/index.ts"],
+      "@nx-monorepo/fantasia": [
+        "front/src/app/components/fantasia/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

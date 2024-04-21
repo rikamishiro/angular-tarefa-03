@@ -12,15 +12,15 @@ import cors from 'cors';
 
 import { json } from 'body-parser';
 
-import { favoritoRouter } from './routes/favorito.router';
+import { livroRouter } from './routes/livro.router';
 import { authRouter } from './routes/auth.router';
 import { verificarTokenJwt } from './util/jwt';
 
 MongoClient.connect(
-  'mongodb://angular-aula03-2022-1_devcontainer-db-1/',
+  'mongodb://angular-aula03-2022-1_aula_devcontainer-db-1/',
 ).then(client => {
   console.log('Conectado ao MongoDB.');
-  app.locals.db = client.db('app-favoritos');
+  app.locals.db = client.db('app-livros');
 }).catch(err => {
   console.error(err);
 });
@@ -37,7 +37,7 @@ app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
 });
 
-app.use('/api/favorito', favoritoRouter);
+app.use('/api/livro', livroRouter);
 app.use('/api/auth', authRouter);
 
 const port = process.env.PORT || 3333;

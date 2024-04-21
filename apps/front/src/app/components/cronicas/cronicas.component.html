@@ -1,0 +1,35 @@
+<div class="container">
+  @for (livro of livros$ | async; track livro) {
+    <mat-card class="card-livro">
+      <mat-card-header>
+        <mat-card-title>
+          {{ livro.titulo }}
+        </mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="{{ livro.capa_img }}"
+      />
+      <mat-card-content>
+        <p>
+          {{ livro.autor }}
+        </p>
+        <p>
+          {{ livro.genero }}
+        </p>
+        <p>
+          {{ livro.ano }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-stroked-button
+          routerLink="/favorito-edicao/{{ livro._id }}"
+        >
+          <mat-icon fontIcon="edit_note"></mat-icon>
+          Editar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  }
+</div>
