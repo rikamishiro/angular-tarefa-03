@@ -5,7 +5,7 @@ import {
   CommonModule,
 } from '@angular/common';
 
-import { FavoritoEdicaoRoutingModule } from './favorito-edicao-routing.module';
+import { LivroEdicaoRoutingModule } from './livro-edicao-routing.module';
 
 
 @NgModule({
@@ -13,8 +13,8 @@ import { FavoritoEdicaoRoutingModule } from './favorito-edicao-routing.module';
   ],
   imports: [
     CommonModule,
-    FavoritoEdicaoRoutingModule,
+    LivroEdicaoRoutingModule,
   ],
 })
-export class FavoritoEdicaoModule {
+export class LivroEdicaoModule {
 }

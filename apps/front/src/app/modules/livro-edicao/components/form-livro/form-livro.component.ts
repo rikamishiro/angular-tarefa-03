@@ -8,13 +8,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 
-import { FavoritoEdicaoService } from '../../services/favorito-edicao.service';
-import { IFavorito } from '@nx-monorepo/comum';
+import { LivroEdicaoService } from '../../services/livro-edicao.service';
+import { ILivro } from '@nx-monorepo/comum';
 
 @Component({
-  selector: 'app-form-favorito',
-  templateUrl: './form-favorito.component.html',
-  styleUrl: './form-favorito.component.css',
+  selector: 'app-form-livro',
+  templateUrl: './form-livro.component.html',
+  styleUrl: './form-livro.component.css',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -25,7 +25,7 @@ import { IFavorito } from '@nx-monorepo/comum';
     MatCardModule,
   ],
 })
-export class FormFavoritoComponent implements OnInit {
+export class FormLivroComponent implements OnInit {
 
   @Input({
     required: true,
@@ -41,27 +41,28 @@ export class FormFavoritoComponent implements OnInit {
   public formGroup = this.fb.group({
     _id: 0,
     titulo: ['', Validators.required],
-    descricao: ['', Validators.required],
-    imagem: ['', Validators.required],
-    url: ['', Validators.required],
+    capa_img: ['', Validators.required],
+    autor: ['', Validators.required],
+    ano: ['', Validators.required],
+    genero: ['', Validators.required],
   });
 
-  public favoritoEdicaoService = inject(FavoritoEdicaoService);
+  public livroEdicaoService = inject(LivroEdicaoService);
   private router = inject(Router);
 
   public enviar(): void {
-    const favorito = this.formGroup.value as IFavorito; // Casting.
-    if (favorito._id) {
-      // Editar favorito:
-      this.favoritoEdicaoService.put(favorito).subscribe(
-        favoritoGravado => {
+    const livro = this.formGroup.value as ILivro; // Casting.
+    if (livro._id) {
+      // Editar livro:
+      this.livroEdicaoService.put(livro).subscribe(
+        livroGravado => {
           this.router.navigate(['/']);
         },
       );
     } else {
-      // Novo favorito:
-      this.favoritoEdicaoService.post(favorito).subscribe(
-        favoritoGravado => {
+      // Novo livro:
+      this.livroEdicaoService.post(livro).subscribe(
+        livroGravado => {
           this.router.navigate(['/']);
         }
       )
@@ -72,9 +73,9 @@ export class FormFavoritoComponent implements OnInit {
     // Se estiver editando um registro:
     if (this.id) {
       // Recupera os dados iniciais do formulário:
-      this.favoritoEdicaoService.get(+this.id).subscribe(
-        favorito => {
-          this.formGroup.setValue(favorito);
+      this.livroEdicaoService.get(+this.id).subscribe(
+        livro => {
+          this.formGroup.setValue(livro);
         },
       );
     }

@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { FormFavoritoComponent } from './components/form-favorito/form-favorito.component';
+import { FormLivroComponent } from './components/form-livro/form-livro.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: FormFavoritoComponent,
+    component: FormLivroComponent,
     data: {
       id: '',
     },
   },
   {
     path: ':id',
-    component: FormFavoritoComponent,
+    component: FormLivroComponent,
   },
 ];
 
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FavoritoEdicaoRoutingModule { }
+export class LivroEdicaoRoutingModule { }

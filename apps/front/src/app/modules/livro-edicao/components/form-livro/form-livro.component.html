@@ -2,7 +2,7 @@
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>
-        {{ id ? 'Editar' : 'Novo' }} favorito
+        {{ id ? 'Editar' : 'Novo' }} livro
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -19,16 +19,16 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="URL da página" formControlName="url">
-            @if (formGroup.controls['url'].hasError('required')) {
+            <input matInput placeholder="URL da imagem da capa" formControlName="imagem">
+            @if (formGroup.controls['capa_img'].hasError('required')) {
               <mat-error>Campo <strong>obrigatório</strong></mat-error>
             }
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="URL da imagem" formControlName="imagem">
-            @if (formGroup.controls['imagem'].hasError('required')) {
+            <input matInput placeholder="Autor" formControlName="autor">
+            @if (formGroup.controls['autor'].hasError('required')) {
               <mat-error>Campo <strong>obrigatório</strong></mat-error>
             }
           </mat-form-field>
@@ -37,8 +37,18 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Descrição" formControlName="descricao"></textarea>
-            @if (formGroup.controls['descricao'].hasError('required')) {
+            <textarea matInput placeholder="Ano" formControlName="ano"></textarea>
+            @if (formGroup.controls['ano'].hasError('required')) {
+              <mat-error>Campo <strong>obrigatório</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Gênero" formControlName="genero"></textarea>
+            @if (formGroup.controls['genero'].hasError('required')) {
               <mat-error>Campo <strong>obrigatório</strong></mat-error>
             }
           </mat-form-field>

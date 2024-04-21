@@ -1,11 +1,11 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormFavoritoComponent } from './form-favorito.component';
+import { FormLivroComponent } from './form-livro.component';
 
-describe('FormFavoritoComponent', () => {
-  let component: FormFavoritoComponent;
-  let fixture: ComponentFixture<FormFavoritoComponent>;
+describe('FormLivroComponent', () => {
+  let component: FormLivroComponent;
+  let fixture: ComponentFixture<FormLivroComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -14,7 +14,7 @@ describe('FormFavoritoComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormFavoritoComponent);
+    fixture = TestBed.createComponent(FormLivroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

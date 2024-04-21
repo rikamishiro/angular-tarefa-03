@@ -18,10 +18,10 @@ export const appRoutes: Route[] = [
     component: SobreComponent,
   },
   {
-    path: 'favorito-edicao',
+    path: 'livro-edicao',
     loadChildren: () => import(
-      './modules/favorito-edicao/favorito-edicao.module',
-    ).then(m => m.FavoritoEdicaoModule),
+      './modules/livro-edicao/livro-edicao.module',
+    ).then(m => m.LivroEdicaoModule),
   },
   {
     path: '',
