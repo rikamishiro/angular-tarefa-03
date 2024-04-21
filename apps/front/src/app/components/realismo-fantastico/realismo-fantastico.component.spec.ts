@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FantasiaComponent } from './fantasia.component';
+import { RealismoFantasticoComponent } from './realismo-fantastico.component';
 
-describe('FantasiaComponent', () => {
+describe('RealismoFantasticoComponent', () => {
 
-  let component: FantasiaComponent;
-  let fixture: ComponentFixture<FantasiaComponent>;
+  let component: RealismoFantasticoComponent;
+  let fixture: ComponentFixture<RealismoFantasticoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        FantasiaComponent,
+        RealismoFantasticoComponent,
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FantasiaComponent);
+    fixture = TestBed.createComponent(RealismoFantasticoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
