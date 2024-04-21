@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-import { FavoritoService } from '../../services/favorito.service';
+import { LivroService } from '../../services/livros.service';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +26,7 @@ import { FavoritoService } from '../../services/favorito.service';
 })
 export class HomeComponent {
 
-  private favoritoService = inject(FavoritoService);
-  public favoritos$ = this.favoritoService.getAll();
+  private livroService = inject(LivroService);
+  public livros$ = this.livroService.getAll();
 
 }

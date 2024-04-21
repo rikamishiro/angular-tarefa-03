@@ -1,33 +1,30 @@
 <div class="container">
-  @for (favorito of favoritos$ | async; track favorito) {
-    <mat-card class="card-favorito">
+  @for (livro of livros$ | async; track livro) {
+    <mat-card class="card-livro">
       <mat-card-header>
         <mat-card-title>
-          {{ favorito.titulo }}
+          {{ livro.titulo }}
         </mat-card-title>
       </mat-card-header>
       <img
         mat-card-image
-        src="{{ favorito.imagem }}"
+        src="{{ livro.capa_img }}"
       />
       <mat-card-content>
         <p>
-          {{ favorito.descricao }}
+          {{ livro.autor }}
+        </p>
+        <p>
+          {{ livro.genero }}
+        </p>
+        <p>
+          {{ livro.ano }}
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <a
-          mat-raised-button
-          color="accent"
-          href="{{ favorito.url }}"
-          target="_blank"
-        >
-          <mat-icon fontIcon="open_in_new"></mat-icon>
-          Visitar
-        </a>
         <button
           mat-stroked-button
-          routerLink="/favorito-edicao/{{ favorito._id }}"
+          routerLink="/favorito-edicao/{{ livro._id }}"
         >
           <mat-icon fontIcon="edit_note"></mat-icon>
           Editar
