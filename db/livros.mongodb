@@ -1,0 +1,86 @@
+use('app-livros');
+
+db.livros.drop();
+
+db.livros.insertMany([
+    {
+        '_id': 1,
+        'capa_img': 'https://m.media-amazon.com/images/I/91oDwjKsprL._AC_UF1000,1000_QL80_DpWeblab_.jpg',
+        'titulo': 'Seminário dos Ratos',
+        'autor': 'Lygia Fagundes Telles',
+        'ano': 1997,
+        'genero': 'Crônicas'
+    },
+    {
+        '_id': 2,
+        'capa_img': 'https://m.media-amazon.com/images/I/81mPXoLOOXL._AC_UF1000,1000_QL80_.jpg',
+        'titulo': 'Antes Que o Café Esfrie',
+        'autor': 'Toshikazu Kawaguchi',
+        'ano': 2022,
+        'genero': 'Crônicas'
+    },
+    {
+        '_id': 3,
+        'capa_img': 'https://m.media-amazon.com/images/I/61fIT8vsaSL._AC_UF1000,1000_QL80_DpWeblab_.jpg',
+        'titulo': 'A Vegetariana',
+        'autor': 'Han Kang',
+        'ano': 2007,
+        'genero': 'Horror'
+    },
+    {
+        '_id': 4,
+        'capa_img': 'https://m.media-amazon.com/images/I/714Y-3rNGmL._AC_UF1000,1000_QL80_.jpg',
+        'titulo': 'Saboro Cadáver',
+        'autor': 'Agustina Bazterrica',
+        'ano': 2017,
+        'genero': 'Horror'
+    },
+    {
+      '_id': 5,
+      'capa_img': 'https://m.media-amazon.com/images/I/81mQNpDPIuL._AC_UF1000,1000_QL80_.jpg',
+      'titulo': 'O Circo da Noite',
+      'autor': 'Erin Morgenstern',
+      'ano': 2011,
+      'genero': 'Fantasia'
+    },
+    {
+      '_id': 6,
+      'capa_img': 'https://m.media-amazon.com/images/I/512WiQoGYXL.jpg',
+      'titulo': 'O Caminho dos Reis',
+      'autor': 'Brandon Sanderson',
+      'ano': 2010,
+      'genero': 'Fantasia'
+    },
+    {
+      '_id': 7,
+      'capa_img': 'https://m.media-amazon.com/images/I/81P7D0l+xpS._AC_UF1000,1000_QL80_.jpg',
+      'titulo': 'O Parque das Irmãs Magníficas',
+      'autor': 'Camila Sosa Villada',
+      'ano': 2019,
+      'genero': 'Realismo Fantástico'
+    },
+    {
+      '_id': 8,
+      'capa_img': 'https://m.media-amazon.com/images/I/815j+SrU90L._AC_UF1000,1000_QL80_.jpg',
+      'titulo': 'O Nariz',
+      'autor': 'Nikolai Gógol',
+      'ano': 1836,
+      'genero': 'Realismo Fantástico'
+    },
+    {
+      '_id': 9,
+      'capa_img': 'https://m.media-amazon.com/images/I/619M4wfLBSL._AC_UF1000,1000_QL80_DpWeblab_.jpg',
+      'titulo': 'Noites Brancas',
+      'autor': 'Fiodor Dostoiévski',
+      'ano': 1848,
+      'genero': 'Ficção'
+    },
+    {
+      '_id': 10,
+      'capa_img': 'https://m.media-amazon.com/images/I/61NFU1vh7PL._AC_UF1000,1000_QL80_.jpg',
+      'titulo': 'Um Sopro de Vida',
+      'autor': 'Clarice Lispector',
+      'ano': 1978,
+      'genero': 'Ficção'
+    },
+])
