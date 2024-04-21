@@ -8,7 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 
-import { LivroEdicaoService } from '../../services/livro-edicao.service';
+import { LivroEdicaoService } from '../../services/livros-edicao.service';
 import { ILivro } from '@nx-monorepo/comum';
 
 @Component({
